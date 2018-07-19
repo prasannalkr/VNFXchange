@@ -1,0 +1,7 @@
+*** Settings ***
+Library           OperatingSystem
+
+*** Test Cases ***
+UE_Attach
+    Sleep    5
+    Copy File    C:\\Bitnami\\jenkins-2.89.2-0\\apps\\jenkins\\jenkins_home\\workspace\\FuncTest_TC1_UE_Attach_Detach\\report.html    C:\\xampp\\htdocs\\VNFXchange\\Public\\app\\views\\ixiareport.html

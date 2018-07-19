@@ -1,0 +1,57 @@
+<div class="container-fluid" style="height:600px;ovarflow:scroll">
+<div class="row" >
+<div ng-include="'sidenav.html'"></div>
+<div>
+<div class="col-md-9 frame" >
+<div style="float: left;padding: 10px;background-color: #a7a9ac;width: 100%;font-size:18px;color:white;">
+	<span style="font-weight:bold">Dashboard</span>
+</div>
+<table style="margin-top:60px">
+<tr>
+<th>VNF Name</th>
+<th>VNF Image</th>
+<th>VNF Type</th>
+<th>Platform</th>
+<th>Onboarding Status</th>
+<th>Onboarded Date </th>
+</tr>
+
+<!-- <tr>
+    <td>SBC_VNF_Oracle</td>
+	<td>SBC_VNF_Image</td>
+    <td>SBC</td>
+	<td>RedHat Openstack</td>
+	<td width="130px">Pass</td>
+	<td width="120px">26/03/2018</td>
+</tr>
+
+<tr>
+    <td>EPC_Demo</td>
+	<td>EPC_Demo_Image</td>
+    <td>EPC</td>
+	<td>RedHat Openstack</td>
+	<td width="130px">Pass</td>
+	<td width="120px">02/04/2018</td>
+</tr>
+
+<tr>
+    <td>cisco_VPC-demo</td>
+	<td>cisco_VPC-demo_Image</td>
+    <td>EPC</td>
+	<td>RedHat Openstack</td>
+	<td width="130px">Pass</td>
+	<td width="120px">03/04/2018</td>
+</tr> -->
+  <tr ng-repeat="x in dashboardData">
+    <td>{{x.VnfName}}</td>
+	<td>{{x.ImageName}}</td>
+    <td>{{x.VnfTypeName}}</td>
+	<td>RedHat - Mitaka</td>
+	<td width="130px">{{x.Result}}</td>
+	<td width="120px">{{ x.VnfDate}}</td>
+	
+  </tr>
+</table>
+</div>
+</div>
+</div>

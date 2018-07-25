@@ -163,6 +163,7 @@ routerApp.controller('onbordingcontroller', ['$scope', '$sce', '$http', function
 		console.log("vnftype" + vnftype);
 		
 		http.get("http://10.53.172.9:8080/vnfonboardimage1", { params: { VnfTypeO: vnftype, ReportPath:report_path} })
+		//http.get("http://10.53.172.9:8080/vnfonboardimage1?VnfTypeO="+vnftype+"&ReportPath="+report_path)
 		.then(function (response) {
 		console.log("executedata------------------"+response.data);		
 		scope.nval=false;
@@ -183,7 +184,7 @@ routerApp.controller('onbordingcontroller', ['$scope', '$sce', '$http', function
 		}, 720000);
 
 
-		http({
+		 http({
 			url: "http://10.53.172.9:8080/vnfonboardimage",
 			method:"POST",
 			params:{Vnfname:VnfNam,vnftypename:vnftype,onboard_image:imgn,onboard_flavour:flvr,servertp:servertyp,Diskformat:diskfor,

@@ -830,19 +830,17 @@ function fromDir(startPath, filter) {
 	return namearr
 };
 app.get('/vnfonboardimage1', function (req, res) {
-	console.log("Invoked vnfonboardimage1");
-	var vnfTypeIdO = req.param('VnfTypeO');
+	var vnfTypeIdO = req.query.VnfTypeO ;
 	var exec = require('child_process').exec;
 	//define a variable to hold the report URL link, it can be referred to show in report
-	//var report_path = 'C:\\xampp\\htdocs\\VNFXchange\\Public\\Report\\' + new Date().getTime();	
-	var report_path = req.param('ReportPath');
-	//var cmd = 'C:\\xampp\\htdocs\\VNFXchange\\' + vnfTypeIdO + '_onboard.bat';	
+	var report_path = req.query.ReportPath;
+	var cmd = 'C:\\xampp\\htdocs\\VNFXchange\\' + vnfTypeIdO + '_onboard.bat';	
 	//cmd = 'start cmd /k pybot.bat --outputdir C:\\xampp\\htdocs\\VNFXchange\\Public\\app\\Report\\' + new Date().getTime() +' -i Onboard C:\\xampp\\htdocs\\VNFXchange\\Genric_Script\\' + vnfTypeIdO +'_Onboarding_TestCases.robot';
 	cmd = 'start cmd /k pybot.bat --outputdir ' + report_path +' -i Onboard C:\\xampp\\htdocs\\VNFXchange\\Genric_Script\\' + vnfTypeIdO +'_Onboarding_TestCases.robot';
-	exec(cmd, function () {
-		console.log("cmdafter"+cmd)
+	 exec(cmd, function (error,stdout,stderr) {
+	console.log("cmdafter"+cmd)
 		
-	  }); 
+	 }); 
 	 
 	 
 	 res.send(JSON.stringify(report_path));
@@ -859,26 +857,27 @@ var exec = require('child_process').exec;
 
 app.post('/vnfonboardimage', function (req, res) {
 console.log("Hello");
+//console.log("45454"+JSON.stringify(req))
 	var str = '';
 	var resultValue = "";
 	//var VnfTypeId=req.param('vnftypeid');
-	var VnfTypeName = req.param('vnftypename');
-	var ImagENam = req.param('imGnam');
-	var GropuNam = req.param('Grpnam');
-	var imageId = req.param('onboard_image');
-	var flavourId = req.param('onboard_flavour');
-	var serverTyp = req.param('servertp');
-	var diskform = req.param('Diskformat');
-	var Containertyp = req.param('Container');
-	var protoColtyp = req.param('protoCol');
-	var Direction = req.param('direction');
-	var etherType = req.param('etherty');
-	var availableZon = req.param('availZon');
+	var VnfTypeName = req.query.vnftypename;
+	var ImagENam = req.query.imGnam;
+	var GropuNam = req.query.Grpnam;
+	var imageId = req.query.onboard_image;
+	var flavourId = req.query.onboard_flavour;
+	var serverTyp = req.query.servertp;
+	var diskform = req.query.Diskformat;
+	var Containertyp = req.query.Container;
+	var protoColtyp = req.query.protoCol;
+	var Direction = req.query.direction;
+	var etherType = req.query.etherty;
+	var availableZon = req.query.availZon;
 	var cflvid = flavourId.split('.');
-	var onboard_vnfname = req.param('Vnfname');
+	var onboard_vnfname = req.query.Vnfname;
 	var uploadImagePath = "/root/auto_heatfiles";
 	var flavourPath = "C:\\xampp\\htdocs\\VNFXchange";
-	var reportPath = req.param('ReportPath');
+	var reportPath = req.query.ReportPath;
 	var VnfOnboardCollection = conn.collection("VnfOnboard");
 	//var reportPathHtml = reportPath+'\\report.html';
 

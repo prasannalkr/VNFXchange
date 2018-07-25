@@ -1,19 +1,38 @@
-<div class="container-fluid" style="height:600px;ovarflow:scroll">
-<div class="row" >
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+			<meta http-equiv="Pragma" content="no-cache" />
+			<meta http-equiv="Expires" content="0" />
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<style>
+				.bottom {
+					display:flex;
+					position: fixed;
+					padding-left: 10%;
+					/* width: 79%; */
+					/* flex: auto; */
+					/* font-size: 90%; */
+				}
+			</style>
+	</head>
+<div class="bottom">
+<div class="row">
 <div ng-include="'sidenav.html'"></div>
 <div>
 <div class="col-md-9 frame" >
-<div style="float: left;padding: 10px;background-color: #a7a9ac;width: 100%;font-size:18px;color:white;">
-	<span style="font-weight:bold">Dashboard</span>
+<div style="float: left;padding: 1%;background-color: #a7a9ac;width: 100%;font-size:152%;color:white;text-align: center">
+	<span style="font-weight:bold;">Dashboard</span>
 </div>
-<table style="margin-top:60px">
+<table style="margin-top:60px;margin-bottom: 15%" >
 <tr>
 <th>VNF Name</th>
 <th>VNF Image</th>
 <th>VNF Type</th>
 <th>Platform</th>
 <th>Onboarding Status</th>
-<th>Onboarded Date </th>
+<th>Onboarded Date</th>
 </tr>
 
 <!-- <tr>
@@ -47,11 +66,12 @@
 	<td>{{x.ImageName}}</td>
     <td>{{x.VnfTypeName}}</td>
 	<td>RedHat - Mitaka</td>
-	<td width="130px">{{x.Result}}</td>
-	<td width="120px">{{ x.VnfDate}}</td>
+	<td width="120px">{{x.Result}}</td>
+	<td width="180px">{{ x.VnfDate}}</td>
 	
   </tr>
 </table>
 </div>
 </div>
 </div>
+</html>
